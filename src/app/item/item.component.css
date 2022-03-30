@@ -1,0 +1,12 @@
+.example-card {
+  max-width: 60vw;
+  margin-bottom: 8px;
+  height: 30vh;
+}
+
+  .error{
+    display : none 
+  }
+  .good{
+      display: block;
+  }

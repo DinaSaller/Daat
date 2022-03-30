@@ -1,0 +1,14 @@
+<button routerLink="" style="margin:2%;">Back</button>
+
+<div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <img class="card-img-top" [ngClass]="{'error': class === 'error', 'good' : class === 'good' }"
+        (load)="dosomething()" (error)="updateUrl()" src={{item.Poster}}>
+    <div class="card-body">
+        <h1 class="card-title">{{item.Title}}</h1>
+        <p class="card-text">{{item.Year}}</p>
+        <div class="card-text"><b>Type: </b>{{item.Type}}</div>
+        <div class="card-text"><b>Year: </b>{{item.Year| date }}</div>
+        <div class="card-text"><b>imdbID: </b>{{item.imdbID}}</div>
+    </div>
+</div>

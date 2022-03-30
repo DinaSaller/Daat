@@ -1,0 +1,20 @@
+<input type="search" style="margin:1%;"  placeholder="search..." [(ngModel)]="search">
+<mat-icon (click)="delete()">close</mat-icon>
+<mat-icon (click)="refresh()">refresh</mat-icon>
+<mat-icon (click)="sort()" style="margin:1%">sort_by_alpha</mat-icon>
+<mat-icon (click)="changeToggle()"> format_list_bulleted</mat-icon>
+<mat-icon (click)="setGrid()">grid_on</mat-icon>
+
+<mat-list style="width: 20vw;">
+  <mat-list-item *ngFor="let type of types">
+    <div mat-line (click)="setList(type.type)">{{type.type}}({{type.count}})</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+<div *ngFor="let  item of (list | filter:search); let i = index">
+  <app-item (upadteList)="updateItem($event)" [item]="item"
+    [ngClass]="{'list': toggle === true, 'grid' : toggle === false}"></app-item>
+</div>
+<div *ngIf="(list | filter:search).length <1">
+  Not Found
+</div>

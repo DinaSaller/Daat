@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+        <div *ngIf="changeText">
+            <input type="text" style="margin: 1%;" value="item.Title" [placeholder]="item.Title" [(ngModel)]="title"
+                (change)="updateText(item.imdbID)">
+        </div>
+        <div *ngIf="!changeText">
+            <mat-card-title #text (click)="change()">{{item.Title}}</mat-card-title>
+        </div>
+        <mat-card-subtitle>
+            <div><b>Year: </b>{{item.Year }}</div>
+            <img mat-card-sm-image [ngClass]="{'error': class === 'error', 'good' : class === 'good' }"
+                (load)="dosomething()" routerLink="/details/{{item.imdbID}}" (error)="updateUrl()" src={{item.Poster}}>
+        </mat-card-subtitle>
+</mat-card>
+
+
